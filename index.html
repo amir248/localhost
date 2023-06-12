@@ -20,46 +20,46 @@
             <legend>message</legend>
             <input type="text" name="message" value="">
           </fieldset>
-          <button type="submit" name="button" id='submit'>Go</button>
+          <!-- <button type="submit" name="button" id='submit'>Go</button> -->
+          <button type="button" id='start' name="button">Fetch</button>
         </form>
-        <button type="button" id='start' name="button">Fetch</button>
         <div id="comments"></div>
       </article>
       <script type="text/javascript">
 
-      document.getElementById('submit').addEventListener('click',(e)=>{
-
-                e.preventDefault();
-
-                // newComment();
-                // получаем данные формы
-                let registerForm = document.forms['registerForm']
-                let userName=registerForm.elements['login'].value
-                let message=registerForm.elements['message'].value
-                // let date=registerForm.elements['date'].value
-                // сериализуем данные в json
-                let user = JSON.stringify({
-                  userName: userName,
-                  message: message,
-                  date: new Date(),
-                })
-                let request = new XMLHttpRequest()
-                // посылаем запрос на адрес "/user"
-                request.open('POST', 'localhost:3000/comments/post', true)
-                request.setRequestHeader(
-                  'Content-Type',
-                  'application/json'
-                )
-                // console.log(request);
-                request.addEventListener('load', function () {
-                  // получаем и парсим ответ сервера
-                  let receivedUser = JSON.parse(request.response);
-                  // console.log(request);
-                  // console.log(response);
-                  console.log(receivedUser.userName,'-',receivedUser.message) // смотрим ответ сервера
-              })
-              request.send(user);
-            });
+      // document.getElementById('submit').addEventListener('click',(e)=>{
+      //
+      //           e.preventDefault();
+      //
+      //           // newComment();
+      //           // получаем данные формы
+      //           let registerForm = document.forms['registerForm']
+      //           let userName=registerForm.elements['login'].value
+      //           let message=registerForm.elements['message'].value
+      //           // let date=registerForm.elements['date'].value
+      //           // сериализуем данные в json
+      //           let user = JSON.stringify({
+      //             userName: userName,
+      //             message: message,
+      //             date: new Date(),
+      //           })
+      //           let request = new XMLHttpRequest()
+      //           // посылаем запрос на адрес "/user"
+      //           request.open('POST', 'localhost:3000/comments/post', true)
+      //           request.setRequestHeader(
+      //             'Content-Type',
+      //             'application/json'
+      //           )
+      //           // console.log(request);
+      //           request.addEventListener('load', function () {
+      //             // получаем и парсим ответ сервера
+      //             let receivedUser = JSON.parse(request.response);
+      //             // console.log(request);
+      //             // console.log(response);
+      //             console.log(receivedUser.userName,'-',receivedUser.message) // смотрим ответ сервера
+      //         })
+      //         request.send(user);
+      //       });
 
 
 
