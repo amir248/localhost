@@ -91,7 +91,7 @@
     // }
     // oK();
     var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+myHeaders.append("Content-Type", "application/json;charset=utf-8");
 
 let userNameF=registerForm.elements['login'].value;
 let messageF=registerForm.elements['message'].value;
@@ -101,8 +101,8 @@ let user = {
   message: messageF,
   date : new Date()
 }
-var urlencoded = new URLSearchParams();
-urlencoded.append("userName", `${user.userName}`);
+// var urlencoded = new URLSearchParams();
+// urlencoded.append("userName", `${user.userName}`);
 
 var requestOptions = {
   method: 'POST',
