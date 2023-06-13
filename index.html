@@ -97,17 +97,17 @@ var urlencoded = new URLSearchParams();
 urlencoded.append("key", "Value");
       let userNameF=registerForm.elements['login'].value;
       let messageF=registerForm.elements['message'].value;
-    function oK(){
+
         let user = {
           userName: userNameF,
           message: messageF,
           date : new Date()
-        }};
-        oK();
+
+}
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
-  body:oK(),
+  body:user,
   redirect: 'follow'
 };
 
