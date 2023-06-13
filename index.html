@@ -93,16 +93,17 @@
     var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-var urlencoded = new URLSearchParams();
-urlencoded.append("key", "Value");
-      let userNameF=registerForm.elements['login'].value;
-      let messageF=registerForm.elements['message'].value;
+let userNameF=registerForm.elements['login'].value;
+let messageF=registerForm.elements['message'].value;
 
-        let user = {
-          userName: userNameF,
-          message: messageF,
-          date : new Date()
-        }
+let user = {
+  userName: userNameF,
+  message: messageF,
+  date : new Date()
+}
+var urlencoded = new URLSearchParams();
+urlencoded.append("userName", `${user.userName}`);
+
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
