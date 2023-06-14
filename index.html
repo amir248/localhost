@@ -136,6 +136,39 @@ fetch(put3, requestOptions)
 //   .then(response => response.text())
 //   .then(result => console.log(result))
 //   .catch(error => console.log('error', error));
+let url = window.location;
+document.querySelector('#comments').innerHTML=`${url.href}`;
+
+//put comments
+const put='https://nasobe.ru/json/git.json';
+// newComment();
+function newComment(){
+  fetch(put)
+  .then(response=>response.json())
+  // .then(ok=>document.getElementById("com").innerHTML = JSON.stringify(ok))
+  .then(message=>{
+    let count=message.length;
+    // console.log(count);
+    let num=-1+count+0;
+    // console.log(num);
+    for(num;num>=0;num--){
+      console.log(message[num]['userName']);
+      console.log(message[num]['message']);
+      console.log(message[num]['date']);
+      let newUser=document.createElement('p');
+      newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
+      document.querySelector('article').append(newUser);
+      let newMessage=document.createElement('p');
+      newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
+      document.querySelector('article').append(newMessage);
+      let newDate=document.createElement('p');
+      newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
+      document.querySelector('article').append(newDate);
+    }
+    document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
+  });
+}//newComment
+newComment();
       </script>
     </main>
   </body>
