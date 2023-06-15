@@ -121,7 +121,7 @@ var requestOptions = {
   },
   body:JSON.stringify(user),
   redirect: 'follow',
-  'API-Key': 'secret'
+  // 'API-Key': 'secret'
 };
 
 
@@ -173,7 +173,7 @@ function newComment(){
     },
     // body:JSON.stringify(user),
     redirect: 'follow',
-    'API-Key': 'secret'
+    // 'API-Key': 'secret'
   })
   .then(response=>response.json())
   // .then(ok=>document.getElementById("com").innerHTML = JSON.stringify(ok))
