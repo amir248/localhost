@@ -89,7 +89,7 @@ function comments(){
   cache: "no-store",
 
 }).then(res=>res.json()).then(message=>{
-  console.log(JSON.stringify(message));
+  console.log("JSON.stringify(message)");
 
   let count=message.length;
   // console.log(count);
@@ -109,7 +109,7 @@ function comments(){
     newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
     document.querySelector('#comments').append(newDate);
   }
-  document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
+  // document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
 
 });
 // console.log('LOL');
