@@ -95,9 +95,9 @@ function comments(){
   let num=-1+count+0;
   // console.log(num);
   for(num;num>=0;num--){
-    // console.log(message[num]['userName']);
-    // console.log(message[num]['message']);
-    // console.log(message[num]['date']);
+    console.log(message[num]['userName']);
+    console.log(message[num]['message']);
+    console.log(message[num]['date']);
     let newUser=document.createElement('p');
     newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
     document.querySelector('#comments').append(newUser);
