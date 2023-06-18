@@ -77,7 +77,7 @@ const json ='https://nasobe.ru/comments/json/git.json';
 function comments(){
   fetch(json,{
     origin: "https://amir248.github.io/",
-  method: "POST OPTIONS",
+  method: "POST",
   headers: {
     'Content-Type': 'application/json'
   },
