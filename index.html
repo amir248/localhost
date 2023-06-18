@@ -75,7 +75,6 @@ fetch(put3, requestOptions)
 
 const json ='https://nasobe.ru/comments/json/git.json';
 function comments(){
-
   fetch('https://nasobe.ru/comments/json/git.json',{
     origin: "https://amir248.github.io/",
   method: "POST",
@@ -90,6 +89,7 @@ function comments(){
   cache: "no-store",
 
 }).then(res=>res.json()).then(message=>{
+  console.log(message);
   let count=message.length;
   // console.log(count);
   let num=-1+count+0;
