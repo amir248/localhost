@@ -74,7 +74,7 @@ fetch(put3, requestOptions)
 
 
 const json ='https://nasobe.ru/comments/json/git.json';
-function comments(){
+// function comments(){
 
   fetch('https://nasobe.ru/comments/json/git.json',{
     origin: "https://amir248.github.io/",
@@ -91,7 +91,8 @@ function comments(){
 
 }).then(res=>res.json()).then(data=>console.log(data));
 console.log(data);
-}
+// }
+
 setInterval(comments,3000);
 
       </script>
