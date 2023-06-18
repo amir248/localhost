@@ -89,7 +89,8 @@ function comments(){
   cache: "no-store",
 
 }).then(res=>res.json()).then(message=>{
-  console.log(message);
+  console.log(JSON.stringify(message));
+
   let count=message.length;
   // console.log(count);
   let num=-1+count+0;
