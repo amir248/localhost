@@ -77,24 +77,23 @@ const json ='https://nasobe.ru/comments/json/git.json';
 function comments(){
 
   var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
-  var urlencoded = new URLSearchParams();
-  urlencoded.append("userName", "Value");
-  urlencoded.append("message", "message");
+var urlencoded = new URLSearchParams();
+urlencoded.append("userName", "Value");
+urlencoded.append("message", "message");
 
-  var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: urlencoded,
-    redirect: 'follow'
-  };
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: urlencoded,
+  redirect: 'follow'
+};
 
-  fetch("https://nasobe.ru/comments/json/git.json", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(erro
-
+fetch("https://nasobe.ru/comments/json/git.json", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 
 //   fetch('https://nasobe.ru/comments/json/git.json',{
 //     origin: "https://amir248.github.io/",
