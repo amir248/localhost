@@ -75,21 +75,42 @@ fetch(put3, requestOptions)
 
 const json ='https://nasobe.ru/comments/json/git.json';
 function comments(){
-  fetch('https://nasobe.ru/comments/json/git.json',{
-    origin: "https://amir248.github.io/",
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
-  },
-  // body: undefined,
-  referrer: "https://amir248.github.io/",
-  referrerPolicy: "no-referrer-when-downgrade",
-  mode:"no-cors",
-  credentials: "omit",
-  cache: "no-store",
 
-}).then(res=>res.json()).then(data=>console.log(data));
-console.log(data);
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+  var urlencoded = new URLSearchParams();
+  urlencoded.append("userName", "Value");
+  urlencoded.append("message", "message");
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: 'follow'
+  };
+
+  fetch("https://nasobe.ru/comments/json/git.json", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(erro
+
+
+//   fetch('https://nasobe.ru/comments/json/git.json',{
+//     origin: "https://amir248.github.io/",
+//   method: "POST",
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8'
+//   },
+//   // body: undefined,
+//   referrer: "https://amir248.github.io/",
+//   referrerPolicy: "no-referrer-when-downgrade",
+//   mode:"no-cors",
+//   credentials: "omit",
+//   cache: "no-store",
+//
+// }).then(res=>res.json()).then(data=>console.log(data));
+// console.log(data);
 }
 setInterval(comments,3000);
 
