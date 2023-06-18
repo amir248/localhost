@@ -11,7 +11,7 @@
       <article class="">
         <h1>oK</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <form action="https://nasobe.ru/comments/post" method="post" name="registerForm">
+        <form action="http://nasobe.ru/comments/post" method="post" name="registerForm">
           <fieldset>
             <legend>login</legend>
             <input type="text" name="login" value="">
@@ -27,102 +27,41 @@
       </article>
       <script type="text/javascript">
 
-      // document.getElementById('submit').addEventListener('click',(e)=>{
-      //
-      //           e.preventDefault();
-      //
-      //           // newComment();
-      //           // получаем данные формы
-      //           let registerForm = document.forms['registerForm']
-      //           let userName=registerForm.elements['login'].value
-      //           let message=registerForm.elements['message'].value
-      //           // let date=registerForm.elements['date'].value
-      //           // сериализуем данные в json
-      //           let user = JSON.stringify({
-      //             userName: userName,
-      //             message: message,
-      //             date: new Date(),
-      //           })
-      //           let request = new XMLHttpRequest()
-      //           // посылаем запрос на адрес "/user"
-      //           request.open('POST', 'localhost:3000/comments/post', true)
-      //           request.setRequestHeader(
-      //             'Content-Type',
-      //             'application/json'
-      //           )
-      //           // console.log(request);
-      //           request.addEventListener('load', function () {
-      //             // получаем и парсим ответ сервера
-      //             let receivedUser = JSON.parse(request.response);
-      //             // console.log(request);
-      //             // console.log(response);
-      //             console.log(receivedUser.userName,'-',receivedUser.message) // смотрим ответ сервера
-      //         })
-      //         request.send(user);
-      //       });
-
-
 
 
             const put2='/files/text.json';
             const put3='https://nasobe.ru/comments/post';
-            const put4='http://localhost:3000/comments/post';
 
   document.querySelector('#start').addEventListener('click',()=>{
-    // let userNameF=registerForm.elements['login'].value;
-    // let messageF=registerForm.elements['message'].value;
-    // async function oK(){
-    //   let user = {
-    //     userName: userNameF,
-    //     message: messageF,
-    //     date : new Date()
-    //   };
-    //
-    //   let response = await fetch(put3, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json;charset=utf-8'
-    //     },
-    //     body: JSON.stringify(user)
-    //   });
-    //
-    //   let result = await response.json();
-    //   console.log(result.name+"__"+result.surname);
-    // }
-    // oK();
-
-
     var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json;charset=utf-8");
+    myHeaders.append("Content-Type", "application/json;charset=utf-8");
 
-let userNameF=registerForm.elements['login'].value;
-let messageF=registerForm.elements['message'].value;
+    let userNameF=registerForm.elements['login'].value;
+    let messageF=registerForm.elements['message'].value;
 
-let user = {
-  userName: userNameF,
-  message: messageF,
-  date : new Date()
-}
-// var urlencoded = new URLSearchParams();
-// urlencoded.append("userName", `${user.userName}`);
+    const user = {
+      userName: userNameF,
+      message: messageF,
+      date : new Date()
+    }
+    // var urlencoded = new URLSearchParams();
+    // urlencoded.append("userName", `${user.userName}`);
 
-var requestOptions = {
-  Origin: "http://localhost:3000/json/git.json",
-  referrer: "http://localhost:3000/json/git.json",
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
+    var requestOptions = {
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "omit", // include, *same-origin, omit
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
 
-  },
-  body:JSON.stringify(user),
-  redirect: 'follow',
-  // 'API-Key': 'secret'
-};
+      body:JSON.stringify(user),
+      // redirect: 'follow',
+      // 'API-Key': 'secret'
+    };
 
 
 fetch(put3, requestOptions)
@@ -132,75 +71,24 @@ fetch(put3, requestOptions)
 
 });//addEventListenerClick
 
-//   var myHeaders = new Headers();
-// myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-//
-// var urlencoded = new URLSearchParams();
-// urlencoded.append("key", "Value");
-//
-// var requestOptions = {
-//   method: 'POST',
-//   headers: myHeaders,
-//   body: urlencoded,
-//   redirect: 'follow'
-// };
-//
-// fetch("https://nasobe.ru/comments/post", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
 
 
-let url = window.location;
-document.querySelector('#comments').innerHTML=`${url.href}`;
+const json ='https://nasobe.ru/comments/git.json';
+function comments(){
+  fetch(json,{
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  // body: undefined,
+  mode:"cors",
+  credentials: "omit",
+  cache: "no-store",
 
-//put comments
-const put='https://nasobe.ru/comments/json/git.json';
-// newComment();
-function newComment(){
-  fetch(put,{
-    Origin: "https://nasobe.ru/",
-    Referrer: "https://nasobe.ru/comments/json/git.json",
-      mode: "cors", // no-cors, *cors, same-origin
-      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
-      redirect: "follow", // manual, *follow, error
-      // referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-
-    },
-    // body:JSON.stringify(user),
-    redirect: 'follow',
-    // 'API-Key': 'secret'
-  })
-  .then(response=>response.json())
-  // .then(ok=>document.getElementById("com").innerHTML = JSON.stringify(ok))
-  .then(message=>{
-    let count=message.length;
-    // console.log(count);
-    let num=-1+count+0;
-    // console.log(num);
-    for(num;num>=0;num--){
-      console.log(message[num]['userName']);
-      console.log(message[num]['message']);
-      console.log(message[num]['date']);
-      let newUser=document.createElement('p');
-      newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
-      document.querySelector('article').append(newUser);
-      let newMessage=document.createElement('p');
-      newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
-      document.querySelector('article').append(newMessage);
-      let newDate=document.createElement('p');
-      newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
-      document.querySelector('article').append(newDate);
-    }
-    document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
-  });
-}//newComment
-newComment();
-
+}).then(res=>res.json()).then(data=>console.log(data));
+console.log('LOL');
+}
+setInterval(comments,3000);
 
       </script>
     </main>
