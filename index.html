@@ -75,26 +75,31 @@ fetch(put3, requestOptions)
 
 const json ='https://nasobe.ru/comments/json/git.json';
 function comments(){
-  fetch(json,{
-    origin: "https://amir248.github.io/",
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
-  },
-  // body: undefined,
-  referrer: "https://amir248.github.io/",
-  referrerPolicy: "no-referrer-when-downgrade",
-  mode:"cors", //CORS - разрешены политикой cors
-  credentials: "omit",
-  cache: "no-store",
+//   fetch(json,{
+//     origin: "https://amir248.github.io/",
+//   method: "POST",
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8'
+//   },
+//   // body: undefined,
+//   referrer: "https://amir248.github.io/",
+//   referrerPolicy: "no-referrer-when-downgrade",
+//   mode:"cors", //CORS - разрешены политикой cors
+//   credentials: "omit",
+//   cache: "no-store",
+//
+// }).then(res=>res.json()).then(message=>{
+//   console.log(JSON.stringify(message));
 
-}).then(res=>res.json()).then(message=>{
-  console.log(JSON.stringify(message));
+let ws = new WebSocket("ws://https://nasobe.ru:3770/discuss/");
+ws.onmessage = ({data}) => {
+  // data = message;
+  console.log(data);
+  let message = JSON.parse(data);
+  console.log(message);
+    let count=message.length;
+    let num=-1+count+0;
 
-  let count=message.length;
-  // console.log(count);
-  let num=-1+count+0;
-  // console.log(num);
   for(num;num>=0;num--){
     // console.log(message[num]['userName']);
     // console.log(message[num]['message']);
