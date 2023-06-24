@@ -72,55 +72,55 @@ fetch(put3, requestOptions)
 });//addEventListenerClick
 
 
-
-const json ='https://nasobe.ru/comments/json/git.json';
-function comments(){
-  fetch(json,{
-    origin: "https://amir248.github.io/",
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
-  },
-  // body: undefined,
-  referrer: "https://amir248.github.io/",
-  referrerPolicy: "no-referrer-when-downgrade",
-  mode:"cors", //CORS - разрешены политикой cors
-  credentials: "omit",
-  cache: "no-store",
-
-}).then(res=>res.json()).then(message=>{
-  console.log(JSON.stringify(message));
-
-});
-// let ws = new WebSocket("ws://https://nasobe.ru:3770/comments/");
-// ws.onmessage = ({data}) => {
-//   // data = message;
-//   console.log(data);
-//   let message = JSON.parse(data);
-//   console.log(message);
-//     let count=message.length;
-//     let num=-1+count+0;
 //
-//   for(num;num>=0;num--){
-//     // console.log(message[num]['userName']);
-//     // console.log(message[num]['message']);
-//     // console.log(message[num]['date']);
-//     let newUser=document.createElement('p');
-//     newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
-//     document.querySelector('#comments').append(newUser);
-//     let newMessage=document.createElement('p');
-//     newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
-//     document.querySelector('#comments').append(newMessage);
-//     let newDate=document.createElement('p');
-//     newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
-//     document.querySelector('#comments').append(newDate);
-//   }
-//   // document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
+// const json ='https://nasobe.ru/comments/json/git.json';
+// function comments(){
+//   fetch(json,{
+//     origin: "https://amir248.github.io/",
+//   method: "POST",
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8'
+//   },
+//   // body: undefined,
+//   referrer: "https://amir248.github.io/",
+//   referrerPolicy: "no-referrer-when-downgrade",
+//   mode:"cors", //CORS - разрешены политикой cors
+//   credentials: "omit",
+//   cache: "no-store",
 //
-// };//wa.onmessage
-// console.log('LOL');
-}
-comments();
+// }).then(res=>res.json()).then(message=>{
+//   console.log(JSON.stringify(message));
+
+let ws = new WebSocket("ws://https://nasobe.ru:3770/comments/");
+  ws.onmessage = ({data}) => {
+    // data = message;
+    console.log(data);
+    let message = JSON.parse(data);
+    console.log(message);
+      let count=message.length;
+      let num=-1+count+0;
+
+    for(num;num>=0;num--){
+      // console.log(message[num]['userName']);
+      // console.log(message[num]['message']);
+      // console.log(message[num]['date']);
+      let newUser=document.createElement('p');
+      newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
+      document.querySelector('#comments').append(newUser);
+      let newMessage=document.createElement('p');
+      newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
+      document.querySelector('#comments').append(newMessage);
+      let newDate=document.createElement('p');
+      newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
+      document.querySelector('#comments').append(newDate);
+    }
+    // document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
+  }//we.message
+
+// };
+console.log('LOL');
+// }
+// comments();
 // setInterval(comments,3000);
 
       </script>
