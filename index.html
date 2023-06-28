@@ -11,7 +11,7 @@
       <article class="">
         <h1>oK</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <form action="http://nasobe.ru/comments/post" method="post" name="registerForm">
+        <form action="https://amir248.github.io/comments/post" method="post" name="registerForm">
           <fieldset>
             <legend>login</legend>
             <input type="text" name="login" value="">
@@ -29,7 +29,7 @@
 
 
 
-            const put2='/files/text.json';
+            const put2='http://localhost:3700/comments/post';
             const put3='https://nasobe.ru/comments/post';
 
   document.querySelector('#start').addEventListener('click',()=>{
@@ -71,26 +71,11 @@ fetch(put3, requestOptions)
 
 });//addEventListenerClick
 
-
-// const json ='http://localhost:3700/comments/json/git.json';
-
-// var urlencoded = new URLSearchParams();
-//
-// var requestOptions = {
-//   method: 'POST',
-//   body: urlencoded,
-//   redirect: 'follow'
-// };
-
-// fetch("https://nasobe.ru/comments/json/git.json/allow-cors", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));
-//
-
+// const json ='http://localhost:3700/comments/json/git.json/allow-cors';
 const json ='https://nasobe.ru/comments/json/git.json/allow-cors';
-function comments(){
-  fetch(json,{
+// amir248.github.io/
+async function comments(){
+  await fetch(json,{
     origin: "https://amir248.github.io/localhost/",
   method: "POST",
   headers: {
@@ -104,60 +89,41 @@ function comments(){
   cache: "no-store",
 
 }).then(response=>response.json()).then(message=>{
-  // console.log(JSON.stringify(message));
   let count=message.length;
-  // console.log(count);
   let num=-1+count+0;
-  // console.log(num);
   for(num;num>0;num--){
-    console.log(message[num]['userName']);
-    console.log(message[num]['message']);
-    console.log(message[num]['date']);
+    let newBox=document.createElement('div');
+    newBox.className='box';
+    document.querySelector('#comments').append(newBox);
+
     let newUser=document.createElement('p');
     newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
-    document.querySelector('#comments').append(newUser);
+    document.querySelector('.box').append(newUser);
     let newMessage=document.createElement('p');
     newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
-    document.querySelector('#comments').append(newMessage);
+    document.querySelector('.box').append(newMessage);
     let newDate=document.createElement('p');
     newDate.innerHTML="<div style='color:blue;float:right;background:gray;border-radius:7px;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
-    document.querySelector('#comments').append(newDate);
+    document.querySelector('.box').append(newDate);
 
-        let her=document.createElement('hr');
-        her.style.cssText='color:lightgray;background-color:gray;'
-        document.querySelector('#comments').append(her);
+    let her=document.createElement('hr');
+    her.style.cssText='color:lightgray;background-color:gray;'
+    document.querySelector('.box').append(her);
   }
+  // document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
 
-// let ws = new WebSocket("ws://https://nasobe.ru/comments/");
-//   ws.onmessage = ({data}) => {
-//     // data = message;
-//     console.log(data);
-//     let message = JSON.parse(data);
-//     console.log(message);
-//       let count=message.length;
-//       let num=-1+count+0;
-//
-//     for(num;num>=0;num--){
-//       // console.log(message[num]['userName']);
-//       // console.log(message[num]['message']);
-//       // console.log(message[num]['date']);
-//       let newUser=document.createElement('p');
-//       newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
-//       document.querySelector('#comments').append(newUser);
-//       let newMessage=document.createElement('p');
-//       newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
-//       document.querySelector('#comments').append(newMessage);
-//       let newDate=document.createElement('p');
-//       newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
-//       document.querySelector('#comments').append(newDate);
-//     }
-//     // document.querySelector('#date').innerHTML="<p style='border:1px solid lightgray; border-radius:2px;'>"+`${new Date()}`+"</p>";
-//   }//we.message
+  });
+  // console.log(message);
+  }//comments
+  // comments();
+  //
+  let timer=3000;
 
-});
-console.log('LOL');
-}
-comments();
+  function delite(){
+    document.querySelector('.box').remove();
+  }
+  setInterval(delite,timer);
+  setInterval(comments,timer);
 // setInterval(comments,3000);
 
       </script>
