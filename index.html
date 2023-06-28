@@ -105,7 +105,7 @@ function comments(){
 
 }).then(response=>response.json()).then(data=>{
   console.log(data);
-  let message = JSON.stringify(data);
+  let message = JSON.parse(data);
         console.log(message);
   console.log(JSON.stringify(message));
   let count=message.length;
