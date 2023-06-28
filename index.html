@@ -74,13 +74,13 @@ fetch(put3, requestOptions)
 
 // const json ='http://localhost:3700/comments/json/git.json';
 
-var urlencoded = new URLSearchParams();
-
-var requestOptions = {
-  method: 'POST',
-  body: urlencoded,
-  redirect: 'follow'
-};
+// var urlencoded = new URLSearchParams();
+//
+// var requestOptions = {
+//   method: 'POST',
+//   body: urlencoded,
+//   redirect: 'follow'
+// };
 
 // fetch("https://nasobe.ru/comments/json/git.json/allow-cors", requestOptions)
 //   .then(response => response.text())
@@ -122,6 +122,10 @@ function comments(){
     let newDate=document.createElement('p');
     newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
     document.querySelector('#comments').append(newDate);
+
+        let her=document.createElement('hr');
+        her.style.cssText='color:lightgray;background-color:gray;'
+        document.querySelector('#comments').append(her);
   }
 
 // let ws = new WebSocket("ws://https://nasobe.ru/comments/");
