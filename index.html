@@ -103,30 +103,26 @@ function comments(){
   credentials: "omit",
   cache: "no-store",
 
-}).then(response=>response.json()).then(mess=>{
-  console.log(mess);
-  let count=mess.length;
-  console.log(count);
-  let message = JSON.stringify(mess);
-        console.log(message);
-      let num=-1+count+0;
+}).then(response=>response.json()).then(message=>{
+  // console.log(JSON.stringify(message));
+  let count=message.length;
+  // console.log(count);
+  let num=-1+count+0;
+  // console.log(num);
   for(num;num>0;num--){
-        console.log(message['userName']);
-        console.log(message[num]['message']);
-        console.log(message[num]['date']);
-        let newUser=document.createElement('p');
-        newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
-        document.querySelector('#comments').append(newUser);
-        let newMessage=document.createElement('p');
-        newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
-        document.querySelector('#comments').append(newMessage);
-        let newDate=document.createElement('p');
-        newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
-        document.querySelector('#comments').append(newDate);
-      }
-      let newS=document.createElement('p');
-      newS.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message['userName']+'oLOLo'+"</div>";
-      document.querySelector('#comments').append(newS);
+    console.log(message[num]['userName']);
+    console.log(message[num]['message']);
+    console.log(message[num]['date']);
+    let newUser=document.createElement('p');
+    newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[num]['userName']+"</div>";
+    document.querySelector('#comments').append(newUser);
+    let newMessage=document.createElement('p');
+    newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
+    document.querySelector('#comments').append(newMessage);
+    let newDate=document.createElement('p');
+    newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
+    document.querySelector('#comments').append(newDate);
+  }
 
 // let ws = new WebSocket("ws://https://nasobe.ru/comments/");
 //   ws.onmessage = ({data}) => {
