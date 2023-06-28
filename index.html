@@ -124,7 +124,7 @@ function comments(){
         document.querySelector('#comments').append(newDate);
       }
       let newS=document.createElement('p');
-      newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message['userName']+"</div>";
+      newS.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message['userName']+"</div>";
       document.querySelector('#comments').append(newUser);
 
 // let ws = new WebSocket("ws://https://nasobe.ru/comments/");
