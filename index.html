@@ -103,11 +103,11 @@ function comments(){
   credentials: "omit",
   cache: "no-store",
 
-}).then(response=>response.json()).then(data=>{
-  console.log(data);
-  let count=data.length;
+}).then(response=>response.json()).then(mess=>{
+  console.log(mess);
+  let count=mess.length;
   console.log(count);
-  let message = JSON.stringify(data);
+  let message = JSON.stringify(mess);
         console.log(message);
       let num=-1+count+0;
   for(num;num>0;num--){
