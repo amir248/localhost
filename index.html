@@ -58,7 +58,7 @@
           'Content-Type': 'application/json'
         },
 
-      body:JSON.stringify(user),
+      body:JSON.parse(user),
       // redirect: 'follow',
       // 'API-Key': 'secret'
     };
@@ -89,7 +89,9 @@ function comments(){
   credentials: "omit",
   cache: "no-store",
 
-}).then(response=>response.json()).then(message=>{
+}).then(response=>response.json()).then(data=>{
+  let message = JSON.parse(data);
+        console.log(message);
   console.log(JSON.stringify(message));
   let count=message.length;
       let num=-1+count+0;
