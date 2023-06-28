@@ -114,7 +114,7 @@ function comments(){
         console.log(message[num]['message']);
         console.log(message[num]['date']);
         let newUser=document.createElement('p');
-        newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+"${message[num]['userName']}"+"</div>";
+        newUser.innerHTML="<div style='color:red;float:left;font-size:25px;'><span style='color:orange;font-size:20px;'>NickName: </span>"+message[1]['userName']+"</div>";
         document.querySelector('#comments').append(newUser);
         let newMessage=document.createElement('p');
         newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
