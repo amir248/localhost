@@ -120,7 +120,7 @@ function comments(){
     newMessage.innerHTML="<div style='color:grey;font-size:20px;'><span style='color:green;font-size:20px;'>Message: </span>"+message[num]['message']+"</div>";
     document.querySelector('#comments').append(newMessage);
     let newDate=document.createElement('p');
-    newDate.innerHTML="<div style='color:blue;float:right;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
+    newDate.innerHTML="<div style='color:blue;float:right;background:gray;border-radius:7px;'><span style='color:violet;font-size:18px;'>Date: </span>"+message[num]['date']+"</div>";
     document.querySelector('#comments').append(newDate);
 
         let her=document.createElement('hr');
