@@ -82,30 +82,30 @@ var requestOptions = {
   redirect: 'follow'
 };
 
-fetch("https://nasobe.ru/comments/json/git.json/allow-cors", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
-const json ='https://nasobe.ru/comments/json/git.json/allow-cors';
-function comments(){
-  fetch(json,{
-    origin: "https://amir248.github.io/localhost/",
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
-  },
-  // body: undefined,
-  referrer: "https://amir248.github.io/localhost/",
-  referrerPolicy: "no-referrer-when-downgrade",
-  mode:"cors", //CORS - разрешены политикой cors
-  credentials: "omit",
-  cache: "no-store",
+// fetch("https://nasobe.ru/comments/json/git.json/allow-cors", requestOptions)
+//   .then(response => response.text())
+//   .then(result => console.log(result))
+//   .catch(error => console.log('error', error));
+//
+//
+// const json ='https://nasobe.ru/comments/json/git.json/allow-cors';
+// function comments(){
+//   fetch(json,{
+//     origin: "https://amir248.github.io/localhost/",
+//   method: "POST",
+//   headers: {
+//     'Content-Type': 'application/json; charset=UTF-8'
+//   },
+//   // body: undefined,
+//   referrer: "https://amir248.github.io/localhost/",
+//   referrerPolicy: "no-referrer-when-downgrade",
+//   mode:"cors", //CORS - разрешены политикой cors
+//   credentials: "omit",
+//   cache: "no-store",
 
 }).then(response=>response.json()).then(data=>{
   console.log(data);
-  let message = JSON.parse(data);
+  let message = JSON.stringify(data);
         console.log(message);
   console.log(JSON.stringify(message));
   let count=message.length;
