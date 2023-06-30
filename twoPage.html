@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>twoPage</title>
+    <link rel="shortcut icon" href="https://amir248.github.io/localhost/hh.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>twoPage</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+    <!--
+     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                            Here commentsBlock!
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  -->
+    <div id="comments" style="width:100%;max-width:100%"></div>
+    <a href="http://localhost/" style="font-size: 17px;">http://localhost/</a>
+    <script type="text/javascript">
+        const id='git';// important!!!
+        const script =document.createElement('script');
+        const url ='http://localhost:3700/comments/script/allow-cors/';
+        async function goComments(){
+          await fetch(url,{
+            origin:'http://localhost/',
+            method: "POST",
+            // referrer: "http://localhost/localhost/twoPage.html",
+            referrerPolicy: "strict-origin-when-cross-origin",
+            mode:"cors",
+            credentials: "omit",
+            cache: "no-store",
+          }).then(response=>response.text()).then(result=>{
+            document.querySelector('#comments').append(script);
+            let oK = document.querySelector('#comments > script');
+            oK.innerHTML=result;
+          });
+        }
+        setTimeout(()=>goComments(),300);
+    </script>
+  </body>
+
+
+</html>
