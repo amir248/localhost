@@ -116,16 +116,17 @@ async function comments(){
   // console.log(message);
   }//comments
   // comments();
-  //
-  let timer=3000;
-
+  let timer=7000;
+  let first;
+  if(first==undefined){
+    comments();
+    first=true;
+  }
   function delite(){
     document.querySelector('.box').remove();
   }
   setInterval(delite,timer);
   setInterval(comments,timer);
-// setInterval(comments,3000);
-
       </script>
     </main>
   </body>
