@@ -15,14 +15,14 @@
     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   -->
     <div id="comments" style="width:100%;max-width:100%"></div>
-    <a href="http://localhost/" style="font-size: 17px;">http://localhost/</a>
+    <a href="https://nasobe.ru/comments" style="font-size: 17px;">https://nasobe.ru/comments</a>
     <script type="text/javascript">
         const id='a000';//important
         const script =document.createElement('script');
-        const url ='http://localhost:3700/comments/script/allow-cors/';
+        const url ='https://nasobe.ru/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
-            origin:'http://localhost/',
+            origin:'https://amir248.github.io/localhost/',
             method: "POST",
             // referrer: "http://localhost/localhost/twoPage.html",
             referrerPolicy: "strict-origin-when-cross-origin",
@@ -37,5 +37,6 @@
         }
         setTimeout(()=>goComments(),300);
     </script>
+    <script type="text/javascript" src='menu.js'></script>
   </body>
 </html>
