@@ -19,12 +19,12 @@
     <div id="comments" style="width:100%;max-width:100%"></div>
     <a href="https://nasobe.ru/comments/" style="font-size: 17px;">https://nasobe.ru/comments/</a>
     <script type="text/javascript">
-        const id='git';// important!!!
+        const id='a001';// important!!!
         const script =document.createElement('script');
-        const url ='https://nasobe.ru/comments/script/allow-cors/';
+        const url ='http://localhost:3700/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
-            origin:'https://amir248.github.io/localhost/',
+            origin:'http://localhost/',
             method: "POST",
             // referrer: "http://localhost/localhost/twoPage.html",
             referrerPolicy: "strict-origin-when-cross-origin",
