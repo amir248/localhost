@@ -33,57 +33,7 @@
       }
     }
     </script>
-    <style media="screen">
-
-      body{
-        margin-left: auto;
-        margin-right: auto;
-        max-width:900px;
-        width:100%;
-        margin-top:70px;
-      }
-      main{
-        width:100%;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-direction:column;
-      }
-      main p{
-        width:100%;
-        max-width:750px;
-      }
-      @media(min-width:1100px){
-        body{
-          margin-top:10px;
-        }
-      }
-      img{
-        width:100%;
-        max-width:150px;
-        float:right;
-      }
-      #comments{
-        width:900px;
-      }
-      #comments fieldset{
-        background:rgba(0,255,0,0.3);
-      }
-      @media(max-width:500px){
-        img{
-          max-width:100%;
-        }
-      }
-      #messages{
-        display:block;
-        margin:auto;
-      }
-
-        #messages .box p div{
-          <!-- width:100%; -->
-          display:block;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <main>
@@ -105,9 +55,7 @@
         const url ='https://nasobe.ru/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
-            origin:'https://nasobe.ru/',
             method: "POST",
-            // referrer: "http://localhost/localhost/twoPage.html",
             referrerPolicy: "strict-origin-when-cross-origin",
             mode:"cors",
             credentials: "omit",
@@ -119,6 +67,7 @@
           });
         }
         setTimeout(()=>goComments(),300);
+
     </script>
     <script type="text/javascript" src='menu.js'></script>
   </body>
