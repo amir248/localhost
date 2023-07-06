@@ -26,9 +26,9 @@
             const url ='https://nasobe.ru/comments/script/allow-cors/';
             async function goComments(){
               await fetch(url,{
-                // origin:'https://localhost/localhost/',
+                origin:'https://amir248.github.io/localhost/',
                 method: "POST",
-                // referrer: "http://localhost/localhost/twoPage.html",
+                referrer: "https://amir248.github.io/localhost/",
                 referrerPolicy: "strict-origin-when-cross-origin",
                 mode:"cors",
                 credentials: "omit",
