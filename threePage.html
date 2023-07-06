@@ -19,6 +19,7 @@
          "url" : "https://nasobe.ru/resume/resume.html"
         },
       "datePublished": "2023-07-01",
+      "dateModified": "2023-07-06",
       "image": "https://amir248.github.io/localhost/commentSustemBaronSiteverstausen.jpg",
       "articleSection": "baron siteverstausen comments sustem",
       "articleBody": "Система комментариев для сайта. Все преимущество в том что её легко встраивать в любой сайт с помощью тега вставки.",
@@ -52,10 +53,12 @@
     <script type="text/javascript">
         const id='a000';//important
         const script =document.createElement('script');
-        const url ='https://nasobe.ru/comments/script/allow-cors/';
+        const url ='http://localhost:3700/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
+            origin:'https://amir248.github.io/',
             method: "POST",
+            referrer: "https://amir248.github.io/localhost/threePage.html",
             referrerPolicy: "strict-origin-when-cross-origin",
             mode:"cors",
             credentials: "omit",
