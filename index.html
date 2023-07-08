@@ -21,14 +21,15 @@
         <div id="comments" style="width:100%;max-width:100%"></div>
         <a href="https://nasobe.ru/comments/" style="font-size: 17px;">https://nasobe.ru/comments/</a>
         <script type="text/javascript">
+            const loginAndSite='https://amir248.github.io/localhost/';
             const id='git';// important!!!
             const script =document.createElement('script');
             const url ='https://nasobe.ru/comments/script/allow-cors/';
             async function goComments(){
               await fetch(url,{
-                origin:'https://amir248.github.io/',
+                origin:`${loginAndSite}`,
                 method: "POST",
-                referrer: "https://amir248.github.io/localhost/",
+                referrer: `${loginAndSite}`,
                 referrerPolicy: "strict-origin-when-cross-origin",
                 mode:"cors",
                 credentials: "omit",
