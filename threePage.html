@@ -52,13 +52,17 @@
     <a href="https://nasobe.ru/comments/" style="font-size: 17px;">https://nasobe.ru/comments</a>
     <script type="text/javascript">
         const id='a000';//important
+        const site={
+          origin:'https://amir248.github.io/localhost/',
+          referrerPolicy:"https://amir248.github.io/localhost/threePage.html"
+        }
         const script =document.createElement('script');
         const url ='https://nasobe.ru/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
-            origin:'https://amir248.github.io/localhost/',
+            origin:site.origin,
             method: "POST",
-            referrer: "https://amir248.github.io/localhost/threePage.html",
+            referrer: site.referrerPolicy,
             referrerPolicy: "strict-origin-when-cross-origin",
             mode:"cors",
             credentials: "omit",
