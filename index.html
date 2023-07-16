@@ -30,9 +30,9 @@
             const url ='https://nasobe.ru/comments/script/allow-cors/';
             async function goComments(){
               await fetch(url,{
-                origin:`${loginAndSite}`,
+                origin:`${loginAndSite.origin}`,
                 method: "POST",
-                referrer: `${loginAndSite}`,
+                referrer: `${loginAndSite.referrer}`,
                 referrerPolicy: "strict-origin-when-cross-origin",
                 mode:"cors",
                 credentials: "omit",
