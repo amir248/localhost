@@ -26,14 +26,14 @@
         origin: "https://amir248.github.io/localhost/",
         referrer: "https://amir248.github.io/localhost/twoPage.html"
       }
-        const id='a001';// important!!! 
+        const id='a001';// important!!!
         const script =document.createElement('script');
         const url ='https://nasobe.ru/comments/script/allow-cors/';
         async function goComments(){
           await fetch(url,{
-            origin:site.origin,
+            origin:`${site.origin}`,
             method: "POST",
-            referrer: site.referrer,
+            referrer: `${site.referrer}`,
             referrerPolicy: "strict-origin-when-cross-origin",
             mode:"cors",
             credentials: "omit",
