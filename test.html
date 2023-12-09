@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://amir248.github.io/localhost/hh.svg">
+    <title>Super sustem comments web workshop named after baron siteverstauzen.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Super commentns web workshop named after baron siteverstauzen</h1>
+        <p>a comment system on the JS node with a registration system that will be working soon...</p>
+        <strong>go to main page <a href="https://qucu.ru/">qucu.ru</a> </strong>
+      </article>
+        <!--
+         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                Here commentsBlock!
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      -->
+      <div id="comments" style="width:100%;max-width:100%"></div>
+      <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+      <script type="text/javascript">
+      const importantBag={id:"test",site:window.location};
+      const script =document.createElement('script');
+      const url ='https://qucu.ru/comments/script/allow-cors/';
+      async function goComments(){
+        await fetch(url,{
+          origin:'https://github/',
+          method: "POST",
+          referrer: "https://oK.vru",
+          referrerPolicy: "origin",
+          mode:"cors",
+          credentials: "omit",
+          cache: "no-store",
+        }).then(response=>response.text()).then(result=>{
+          document.querySelector('#comments').append(script);
+          let oK = document.querySelector('#comments > script');
+          oK.innerHTML=result;
+        });
+      }
+      setTimeout(()=>goComments(),3000);
+      </script>
+      <script type="text/javascript" src='menu.js'></script>
+    </main>
+  </body>
+</html>
