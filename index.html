@@ -28,9 +28,13 @@
             };
             const importantBag={id:"git",site:window.location};
             const script =document.createElement('script');
-            const url ='https://qucu.ru/allow-corsGit';
+            const url ='https://comments.qucu.ru/allow-corsGit';
             async function goComments(){
               await fetch(url,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
                 origin:`${loginAndSite.origin}`,
                 method: "POST",
                 referrer: `${loginAndSite.referrer}`,
