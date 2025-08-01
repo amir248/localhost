@@ -1,7 +1,7 @@
 const menu=document.createElement('nav');
-let arrayMenu=['/threePage.html','/twoPage.html','/'];
+let arrayMenu=['/threePage.html','/twoPage.html','/','/folder'];
 function eachMenu(x){
-    return '<li><a href='+x[0]+'>'+ x[0] + '</a></li>'+'<li><a href='+x[1]+'>'+ x[1]+ '</a></li>'+'<li><a href='+x[2]+'>'+ x[2]+ '</a></li>';
+    return '<li><a href='+x[0]+'>'+ x[0] + '</a></li>'+'<li><a href='+x[1]+'>'+ x[1]+ '</a></li>'+'<li><a href='+x[2]+'>'+ x[2]+ '</a></li>'+'<li><a href='+x[3]+'>'+ x[3]+ '</a></li>';
 }
 menu.innerHTML=eachMenu(arrayMenu);
 menu.style.cssText=`display:fixed;position:absolute;top:15px;right:1%;`;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="https://amir248.github.io/localhost/hh.svg">
+    <title>Super sustem comments web workshop named after baron siteverstauzen.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+ <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "comments system",
+      "headline": "order an adaptive landing page with advertising",
+        "author" : {
+         "@type" : "Person",
+         "name" : "Amir Navrutdinov",
+         "alternateName": ["Amir Shikarno", "Амир Наврутдинов"],
+         "url" : "https://qucu.ru/resume/resume.html"
+        },
+      "datePublished": "2023-07-01",
+      "dateModified": "2025-08-01",
+      "image": "https://amir248.github.io/localhost/commentSustemBaronSiteverstausen.jpg",
+      "articleSection": "baron siteverstausen comments sustem",
+      "articleBody": "Система комментариев для сайта. Все преимущество в том что её легко встраивать в любой сайт с помощью тега вставки.",
+      "url": "https://github.qucu.ru/folder/",
+      "publisher" : {
+        "@type" : "Organization",
+        "name" : "Web workshop named after Baron Siteverstauzen",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://qucu.ru/images/lol/spa.webp"
+        }
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>Commentns System from web workshop named after baron sayteverstauzen</h1>
+        <p>a comment system on the JS node with a registration system that will be working soon...</p>
+        <strong>go to main page <a href="https://comments.qucu.ru/">qucu.ru</a> </strong>
+      </article>
+        <!--
+         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                Here commentsBlock!
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      -->
+        <div id="comments" style="width:100%;max-width:100%"></div>
+        <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://comments.qucu.ru/</a>
+        <script type="text/javascript">
+            const loginAndSite={
+              origin:'https://github.qucu.ru/',
+              referrer:'https://github.qucu.ru/folder/'
+            };
+            const importantBag={id:"git",site:window.location};
+            const script =document.createElement('script');
+            const url ='https://comments.qucu.ru/allow-cors';
+            async function goComments(){
+              await fetch(url,{
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                },
+                origin:`${loginAndSite.origin}`,
+                method: "POST",
+                referrer: `${loginAndSite.referrer}`,
+                referrerPolicy: "origin-when-cross-origin",
+                mode:"cors",
+                credentials: "omit",
+                cache: "no-store",
+              }).then(response=>response.text()).then(result=>{
+                document.querySelector('#comments').append(script);
+                let oK = document.querySelector('#comments > script');
+                oK.innerHTML=result;
+              });
+            }
+            setTimeout(()=>goComments(),1300);
+        </script>
+      <script type="text/javascript" src='menu.js'></script>
+    </main>
+  </body>
+</html>
