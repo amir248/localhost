@@ -62,6 +62,9 @@
         <h1>WORKING CODE!</h1>
         <p>a comment system on the JS node with a registration system that will be working soon...</p>
         <strong>go to main page <a href="https://comments.qucu.ru/">qucu.ru</a> </strong>
+        <div id="copy">
+            <strong>COPY SCRIPT <span style="font-size:33px;">📋</span></strong>
+        </div>
         <code>
           <div class="oK" style="color: #e1e4e8; background-color: #24292e; font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 14px;">
           
@@ -106,7 +109,7 @@
       -->
         <div id="comments" style="width:100%;max-width:100%"></div>
         <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://comments.qucu.ru/</a>
-        <script type="text/javascript">
+        <script type="text/javascript" id="textToCopy">
             const loginAndSite={
               origin:window.location.host,
               referrer:window.location.href
@@ -135,6 +138,20 @@
             }
             setTimeout(()=>goComments(),1300);
         </script>
+        <script>
+  const copyButton = document.getElementById('copy');
+  const textToCopy = document.getElementById('textToCopy');
+
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy.innerText);
+      alert('Скрипт системы комментариев скопирован!');
+    } catch (err) {
+      console.error('Ошибка при копировании: ', err);
+      alert('Не удалось скопировать текст.');
+    }
+  });
+</script>
       <script type="text/javascript" src='../menu.js'></script>
     </main>
   </body>
