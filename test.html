@@ -24,15 +24,17 @@
       <script type="text/javascript">
       const importantBag={id:"test",site:window.location};
       const script =document.createElement('script');
-      const url ='https://qucu.ru/comments/script/allow-cors/';
+      const url ='https://comments.qucu.ru/allow-cors';
       async function goComments(){
         await fetch(url,{
-          origin:"https://amir248.github.io/localhost/test.html",
+        headers: {
+            'Content-Type': 'application/json'
+        },
           method: "POST",
-          referrer: "https://amir248.github.io/localhost/test.html",
-          referrerPolicy: "origin",
+          
+          referrerPolicy: "origin-when-cross-origin",
           mode:"cors",
-          credentials: "omit",
+          credentials: "include",
           cache: "no-store",
         }).then(response=>response.text()).then(result=>{
           document.querySelector('#comments').append(script);
