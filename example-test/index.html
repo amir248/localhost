@@ -121,15 +121,13 @@
               await fetch(url,{
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
                 },
-                origin:`${loginAndSite.origin}`,
                 method: "POST",
+                mode:"cors",
+                credentials: "include",
+                cache: "no-store",
                 referrer: `${loginAndSite.referrer}`,
                 referrerPolicy: "origin-when-cross-origin",
-                mode:"cors",
-                credentials: "omit",
-                cache: "no-store",
               }).then(response=>response.text()).then(result=>{
                 document.querySelector('#comments').append(script);
                 let oK = document.querySelector('#comments > script');
