@@ -108,48 +108,46 @@
         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
       -->
         <div id="comments" style="width:100%;max-width:100%"></div>
-        <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://comments.qucu.ru/</a>
         <script type="text/javascript" id="textToCopy">
-            const loginAndSite={
-              origin:window.location.host,
-              referrer:window.location.href
-            }
-            const importantBag={id:"test",site:window.location};
-            const script =document.createElement('script');
-            const url ='https://comments.qucu.ru/allow-cors';
-            async function goComments(){
-              await fetch(url,{
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: "POST",
-                mode:"cors",
-                credentials: "include",
-                cache: "no-store",
-                referrer: `${loginAndSite.referrer}`,
-                referrerPolicy: "origin-when-cross-origin",
-              }).then(response=>response.text()).then(result=>{
-                document.querySelector('#comments').append(script);
-                let oK = document.querySelector('#comments > script');
-                oK.innerHTML=result;
-              });
-            }
-            setTimeout(()=>goComments(),1300);
-        </script>
-        <script>
-  const copyButton = document.getElementById('copy');
-  const textToCopy = document.getElementById('textToCopy');
+            async function loadAssets() {
+        try {
+        // Загружаем CSS
+        const cssResponse = await fetch("https://comments.qucu.ru/style");
+        const cssText = await cssResponse.text();
+        const style = document.createElement("style");
+        style.textContent = cssText;
+        document.head.append(style);
 
-  copy.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(textToCopy.innerText);
-      alert('Скрипт системы комментариев скопирован!');
-    } catch (err) {
-      console.error('Ошибка при копировании: ', err);
-      alert('Не удалось скопировать текст.');
-    }
-  });
-</script>
+        // Загружаем JS с ID пользователя
+        const jsResponse = await fetch(`https://comments.qucu.ru/js/7`);
+        const jsText = await jsResponse.text();
+        const js = document.createElement("script");
+        js.type = "text/javascript";
+        js.textContent = jsText;
+        document.head.append(js);
+
+        console.log("JS и CSS успешно подгружены для пользователя #7!");
+        } catch (err) {
+        console.error("Ошибка загрузки:", err);
+        }
+        }
+
+        loadAssets();
+                </script>
+                <script>
+          const copyButton = document.getElementById('copy');
+          const textToCopy = document.getElementById('textToCopy');
+
+          copy.addEventListener('click', async () => {
+            try {
+              await navigator.clipboard.writeText(textToCopy.innerText);
+              alert('Скрипт системы комментариев скопирован!');
+            } catch (err) {
+              console.error('Ошибка при копировании: ', err);
+              alert('Не удалось скопировать текст.');
+            }
+          });
+        </script>
       <script type="text/javascript" src='../menu.js'></script>
     </main>
   </body>
