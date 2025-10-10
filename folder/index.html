@@ -61,7 +61,7 @@
         <h1>Commentns System from web workshop named after baron sayteverstauzen</h1>
         <p>a comment system on the JS node with a registration system that will be working soon...</p>
         <strong>go to main page <a href="https://comments.qucu.ru/">qucu.ru</a> </strong>
-        <code>
+        <!-- <code>
           <div class="oK" style="color: #e1e4e8; background-color: #24292e; font-family: 'Droid Sans Mono', 'monospace', monospace; font-weight: normal; font-size: 14px;">
           <div><span style="color: #e1e4e8;">&lt;</span><span style="color: #85e89d;">div</span><span style="color: #e1e4e8;"> </span><span style="color: #b392f0;">id</span><span style="color: #e1e4e8;">=</span><span style="color: #9ecbff;">"comments"</span><span style="color: #e1e4e8;"> </span><span style="color: #b392f0;">style</span><span style="color: #e1e4e8;">=</span><span style="color: #9ecbff;">"</span><span style="color: #9ecbff;">width:100%;max-width:100%"</span><span style="color: #e1e4e8;">&gt;&lt;/</span><span style="color: #85e89d;">div</span><span style="color: #e1e4e8;">&gt;</span></div>
           <div><span style="color: #e1e4e8;"> &lt;</span><span style="color: #85e89d;">a</span><span style="color: #e1e4e8;"> </span><span style="color: #b392f0;">href</span><span style="color: #e1e4e8;">=</span><span style="color: #9ecbff;">"https://qucu.ru/comments/"</span><span style="color: #e1e4e8;"> </span><span style="color: #b392f0;">style</span><span style="color: #e1e4e8;">=</span><span style="color: #9ecbff;">"</span><span style="color: #9ecbff;">font-size: 17px;"</span><span style="color: #e1e4e8;">&gt;https://comments.qucu.ru/&lt;/</span><span style="color: #85e89d;">a</span><span style="color: #e1e4e8;">&gt;</span></div>
@@ -96,7 +96,37 @@
           <div><span style="color: #e1e4e8;"> </span><span style="color: #79b8ff;">setTimeout</span><span style="color: #e1e4e8;">(()</span><span style="color: #f97583;">=&gt;</span><span style="color: #b392f0;">goComments</span><span style="color: #e1e4e8;">(),</span><span style="color: #79b8ff;">300</span><span style="color: #e1e4e8;">);</span></div>
           <div><span style="color: #e1e4e8;"> </span><span style="color: #e1e4e8;">&lt;/</span><span style="color: #85e89d;">script</span><span style="color: #e1e4e8;">&gt;</span></div>
           </div>
-        </code>
+        </code> -->
+        <code>
+       <div style="background: black;color:white;">
+         <div><span>&lt;div id="comments"&gt;&lt;/div&gt;</span></div>
+        <div><span>&lt;script&gt;<br />async</span><span>&nbsp;</span><span>function</span><span>&nbsp;</span><span>loadAssets</span><span>() {</span></div>
+        <div><span></span><span>try</span><span>&nbsp;{</span></div>
+        <div><span></span><span>// Загружаем CSS</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>cssResponse</span><span>&nbsp;=&nbsp;</span><span>await</span><span>&nbsp;</span><span>fetch</span><span>(</span><span>"https://comments.qucu.ru/style"</span><span>);</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>cssText</span><span>&nbsp;=&nbsp;</span><span>await</span><span>&nbsp;</span><span>cssResponse</span><span>.</span><span>text</span><span>();</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>style</span><span>&nbsp;=&nbsp;</span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"style"</span><span>);</span></div>
+        <div><span></span><span>style</span><span>.</span><span>textContent</span><span>&nbsp;=&nbsp;</span><span>cssText</span><span>;</span></div>
+        <div><span></span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>style</span><span>);</span></div>
+        <p></p>
+        <div><span></span><span>// Загружаем JS с ID пользователя</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>jsResponse</span><span>&nbsp;=&nbsp;</span><span>await</span><span>&nbsp;</span><span>fetch</span><span>(</span><span>`https://comments.qucu.ru/js/</span><span>Your ID`</span><span>);</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>jsText</span><span>&nbsp;=&nbsp;</span><span>await</span><span>&nbsp;</span><span>jsResponse</span><span>.</span><span>text</span><span>();</span></div>
+        <div><span></span><span>const</span><span>&nbsp;</span><span>js</span><span>&nbsp;=&nbsp;</span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"script"</span><span>);</span></div>
+        <div><span></span><span>js</span><span>.</span><span>type</span><span>&nbsp;=&nbsp;</span><span>"text/javascript"</span><span>;</span></div>
+        <div><span></span><span>js</span><span>.</span><span>textContent</span><span>&nbsp;=&nbsp;</span><span>jsText</span><span>;</span></div>
+        <div><span></span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>js</span><span>);</span></div>
+        <p></p>
+        <div><span></span><span>console</span><span>.</span><span>log</span><span>(</span><span>"JS и CSS успешно подгружены для пользователя #Your ID!"</span><span>);</span></div>
+        <div><span>}&nbsp;</span><span>catch</span><span>&nbsp;(</span><span>err</span><span>) {</span></div>
+        <div><span></span><span>console</span><span>.</span><span>error</span><span>(</span><span>"Ошибка загрузки:"</span><span>,&nbsp;</span><span>err</span><span>);</span></div>
+        <div><span>}</span></div>
+        <div><span>}</span></div>
+        <p></p>
+        <div><span></span><span>loadAssets</span><span>();</span></div>
+        <div><span>&lt;/script&gt;</span></div>
+       </div>
+    </code>
       </article>
         <!--
          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
