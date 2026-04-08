@@ -53,29 +53,30 @@
     <div id="comments" style="width:100%;max-width:100%"></div>
       <script type="text/javascript">
        async function loadAssets() {
-        try {
-        // Загружаем CSS
-        const cssResponse = await fetch("https://comments.qucu.ru/style");
+      try {
+        // CSS
+        const cssResponse = await fetch("https://comments.qucu.ru/style", { credentials: "include" });
+        if (!cssResponse.ok) throw new Error(`CSS fetch failed: ${cssResponse.status}`);
         const cssText = await cssResponse.text();
         const style = document.createElement("style");
         style.textContent = cssText;
         document.head.append(style);
 
-        // Загружаем JS с ID пользователя
-        const jsResponse = await fetch(`https://comments.qucu.ru/js/7`);
+        // JS
+        const jsResponse = await fetch("https://comments.qucu.ru/js/7", { credentials: "include" });
+        if (!jsResponse.ok) throw new Error(`JS fetch failed: ${jsResponse.status}`);
         const jsText = await jsResponse.text();
         const js = document.createElement("script");
-        js.type = "text/javascript";
         js.textContent = jsText;
         document.head.append(js);
 
-        console.log("JS и CSS успешно подгружены для пользователя #7!");
-        } catch (err) {
+        console.log("JS и CSS успешно подгружены!");
+      } catch(err) {
         console.error("Ошибка загрузки:", err);
-        }
-        }
+      }
+    }
 
-        loadAssets();
+    loadAssets();
     </script>
     <script type="text/javascript" src='menu.js'></script>
   </body>
